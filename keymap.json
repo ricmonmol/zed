@@ -2,25 +2,27 @@
   {
     "context": "Workspace",
     "bindings": {
-      "alt-h": "pane::ActivatePrevItem",
+      "alt-h": "pane::ActivatePreviousItem",
       "alt-l": "pane::ActivateNextItem",
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
     }
   },
   {
     "context": "Terminal",
     "bindings": {
-      "cmd-n": "workspace::NewCenterTerminal"
+      "ctrl-t": "workspace::ToggleBottomDock"
     }
   },
   {
     "context": "Editor",
     "bindings": {
       "ctrl-shift-c": "editor::Copy",
-      "ctrl-shift-v": "editor::Paste"
+      "ctrl-shift-v": "editor::Paste",
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown"
     }
   },
   {
@@ -28,19 +30,25 @@
     "bindings": {
       "space space": "file_finder::Toggle",
       "space e": "project_panel::ToggleFocus",
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-      "space f": "workspace::ToggleLeftDock",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
       "space t": "workspace::NewCenterTerminal",
       "ctrl-shift-v": "editor::Paste",
       "ctrl-x": "pane::CloseActiveItem",
       "space -": "pane::SplitDown",
       "space s": "pane::SplitRight",
       "ctrl-n": "pane::ActivateNextItem",
-      "ctrl-b": "pane::ActivatePrevItem",
-      "space z": "workspace::CloseAllDocks"
+      "ctrl-b": "pane::ActivatePreviousItem",
+      "space z": "workspace::CloseAllDocks",
+      "ctrl-t": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "ctrl-s": "workspace::Save"
     }
   },
   {
@@ -50,7 +58,8 @@
       "a": "project_panel::NewFile",
       "d": "project_panel::Delete",
       "r": "project_panel::Rename",
-      "o": "project_panel::OpenPermanent"
+      "o": "project_panel::OpenPermanent",
+      "ctrl-t": "workspace::ToggleBottomDock"
     }
   },
   {
@@ -58,5 +67,12 @@
     "bindings": {
       "space space": "file_finder::Toggle"
     }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "q": null
+    }
   }
 ]
+
